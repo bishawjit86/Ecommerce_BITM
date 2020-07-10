@@ -1,0 +1,33 @@
+﻿@using Ecommerce.Models.ResponseModels
+@model ICollection<CustomerResponseModel>
+<h1 class="text-primary">Customer List</h1>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>PhoneNo</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var acustomer in Model)
+        {
+            <tr>
+                <td>@acustomer.Name</td>
+                <td>@acustomer.Phone</td>
+                <td>@acustomer.Address</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@acustomer.Id" class="btn btn-info">
+                        <i class="glyphicon glyphicon-pencil"></i>Edit
+                    </a>
+                    &nbsp;&nbsp;
+                    <a asp-action="Delete" asp-route-id="@acustomer.Id" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-trash"></i>Delete
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

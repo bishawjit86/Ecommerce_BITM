@@ -1,0 +1,27 @@
+﻿using Ecommerce.Models.Contracts;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Ecommerce.Models.Models
+{
+    public class Customer : IDeletable
+    {
+        [Key]
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public bool IsDeleted { set; get; }
+
+        public bool Delete()
+        {
+            IsDeleted = true;
+            return true;
+        }
+    }
+}
