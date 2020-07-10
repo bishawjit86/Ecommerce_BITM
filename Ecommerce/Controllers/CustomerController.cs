@@ -53,7 +53,7 @@ namespace Ecommerce.Controllers
             }
             return View();
         }
-        public IActionResult List()
+        public IActionResult GetAll()
         {
             CustomerCreateViewModel customer = new CustomerCreateViewModel();
             customer.CustomerList = _manager.GetAll()
